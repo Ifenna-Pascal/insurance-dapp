@@ -1,3 +1,6 @@
+/* import google fonts */
+@import url('https://fonts.googleapis.com/css2?family=Alef&family=Catamaran:wght@100&family=Edu+NSW+ACT+Foundation&family=Fuzzy+Bubbles&family=Heebo:wght@100;200;300;400&family=Inter:wght@600&family=Irish+Grover&family=Lato:ital,wght@1,300&family=Lemon&family=Manrope:wght@300;400&family=Mukta:wght@300;400&family=Open+Sans:wght@300&family=PT+Sans&family=Playfair+Display:ital,wght@0,400;0,500;1,400;1,500&family=Poppins:ital,wght@0,400;1,300;1,400&family=Roboto+Flex:opsz,wght@8..144,300&display=swap');
+
 html,
 body {
   padding: 0;
@@ -13,6 +16,7 @@ a {
 
 * {
   box-sizing: border-box;
+  color: #404a5a;
 }
 
 @media (prefers-color-scheme: dark) {
@@ -22,5 +26,25 @@ a {
   body {
     color: white;
     background: black;
+  }
+}
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+
+  th {
+    @apply font-semibold
+  }
+  td {
+    @apply py-4 my-1 text-gray-400 px-4 font-Poppins text-base
+  }
+  tr:nth-child(even) {
+    @apply bg-tetiary rounded-2xl 
+  }
+  tr {
+    @apply hover:cursor-pointer
   }
 }
