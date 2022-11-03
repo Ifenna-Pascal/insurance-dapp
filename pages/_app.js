@@ -16,7 +16,7 @@ function MyApp({ Component, pageProps }) {
       </ToggleContext>
     );
   }
-  <Component {...pageProps} />;
+  return <Component {...pageProps} />;
 }
 
 export default MyApp;

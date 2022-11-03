@@ -10,10 +10,10 @@ function RightBar({ expand }) {
       }`}
     >
       <div>
-        <Button name={"Top Up"} />
-        <Button name={"Allowance"} />
-        <Button name={"Make Claim"} />
-        <Button name={"Change Beneficiary"} />
+        <Button name={"Top Up"} type="topup" />
+        <Button name={"Allowance"} type="allow" />
+        <Button name={"Make Claim"} type="claim" />
+        <Button name={"Change Beneficiary"} type="beneficiary" />
       </div>
     </div>
   );
@@ -21,10 +21,13 @@ function RightBar({ expand }) {
 
 export default RightBar;
 
-function Button({ name, action }) {
-  const { toggle, modal, expand, setExpand } = useContext(ToggleContext);
+function Button({ name, type }) {
+  const { modal, expand, setModal, setExpand, setActionType } =
+    useContext(ToggleContext);
   const handleClick = () => {
     setExpand(false);
+    setModal(!modal);
+    setActionType(type);
   };
   return (
     <div>

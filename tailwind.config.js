@@ -11,6 +11,9 @@ module.exports = {
         secondary: "#161e2f",
         tetiary: "#1F2937",
       },
+      backgroundColor: {
+        overlay: "rgba(0, 0, 0, 0.2)",
+      },
       fontFamily: {
         Poppins: ["Poppins", "sans-serif"],
       },

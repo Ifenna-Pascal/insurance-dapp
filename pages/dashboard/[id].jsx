@@ -4,9 +4,11 @@ import Card from "../../components/dashboard/Card";
 import PortfolioTable from "../../components/dashboard/PortfolioTable";
 import RightBar from "../../components/dashboard/RightBar";
 import Icons from "../../components/Icons";
+import Form from "../../components/modal/Form";
+import MoadalWrapper from "../../components/modal/Wrapper";
 
 function Portfolio() {
-  const { toggle, expand } = useContext(ToggleContext);
+  const { setExpand, expand } = useContext(ToggleContext);
   return (
     <div className="relative">
       <div className="grid grid-cols-4 gap-4 gap-x-8">
@@ -22,10 +24,13 @@ function Portfolio() {
         <Icons
           icon={`${expand ? "close-fill" : "menu-3-fill"}`}
           hover="hover:bg-tetiary duration-300"
-          onClick={() => toggle(expand)}
+          onClick={() => setExpand(!expand)}
         />
       </div>
       <PortfolioTable />
+      <MoadalWrapper>
+        <Form />
+      </MoadalWrapper>
     </div>
   );
 }

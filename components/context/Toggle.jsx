@@ -5,15 +5,11 @@ export const ToggleContext = createContext();
 function Toggle({ children }) {
   const [expand, setExpand] = useState(false);
   const [modal, setModal] = useState(false);
-  const toggle = (value) => {
-    // switch (value) {
-    //   case expand :
-    //     setExpand(!
-    // }
-  };
+  const [actionType, setActionType] = useState("");
+
   return (
     <ToggleContext.Provider
-      value={{ toggle, expand, setExpand, modal, setModal }}
+      value={{ expand, setExpand, modal, setModal, actionType, setActionType }}
     >
       {children}
     </ToggleContext.Provider>
