@@ -1,0 +1,39 @@
+import { ethers, utils } from "ethers";
+import React, { useContext } from "react";
+import { ContractContext } from "./contract";
+import { useMoralis } from "react-moralis";
+import abi from "./abi.json";
+
+function ContractFunctionsHook() {
+  // const { contract } = useContext(ContractContext);
+  const { Moralis } = useMoralis();
+  const address = "0x9C46B0B4c9C5bc05E1D5FEd021f28147C4f3f8C9";
+
+  const addPortfolio = async ({
+    type,
+    password,
+    amount,
+    beneficiary,
+    max_amount,
+  }) => {
+    try {
+      const ethers = Moralis.web3Library;
+      const web3PRovider = await Moralis.enableWeb3();
+      const amounts = utils.parseEther(amount);
+      const signer = web3PRovider.getSigner();
+      const contract = new ethers.Contract(address, abi.abi, signerOrProvider);
+      console.log(amounts);
+      const error = await contract.callStatic.insuranceDeposit(amounts);
+      console.log(error);
+      const res = await contract.insuranceDeposit(amounts);
+      console.log(res);
+    } catch (e) {
+      console.error(e, "error");
+    }
+  };
+  return {
+    addPortfolio,
+  };
+}
+
+export default ContractFunctionsHook;
